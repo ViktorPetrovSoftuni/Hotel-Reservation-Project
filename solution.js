@@ -122,12 +122,9 @@ function getPersonalData(e) {
         fillConfirmReservationData(reservation);
     }
 }
-/*
+
+//* Verifier
 // Confirm Reservation
-
-
-*/
-
 function fillConfirmReservationData(customReservation) {
     document.querySelector('.confirm-reservation #guest-name').textContent = `Name: ${customReservation.name}`;
     document.querySelector('.confirm-reservation #guest-phone').textContent = `Phone Number: ${customReservation.phone}`;
@@ -137,6 +134,8 @@ function fillConfirmReservationData(customReservation) {
     document.querySelector('.confirm-reservation #guest-data-out').textContent = `Date-out: ${customReservation.endDate}`;
 }
 
+
+// Thank you page
 document.querySelector('#confirm-back-btn').addEventListener('click', (e) => getBackToPersonalData(e));
 
 function getBackToPersonalData(e) {
