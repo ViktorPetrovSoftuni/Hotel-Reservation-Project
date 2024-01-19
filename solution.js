@@ -31,7 +31,17 @@ function searchFormData(e) {
     const data = e.target.parentElement;
     const checkIn = data.querySelector('#check-in').value;
     const checkOut = data.querySelector('#check-out').value;
-    const people = data.querySelector('#people').value;
+    const peopleInput = data.querySelector('#people');
+    const peopleWarning = data.querySelector('#people-warning'); // Add this line
+    const people = peopleInput.value;
+
+    if (people > 25) {
+        peopleWarning.textContent = "Max people is 25"; // Show warning message
+        return; // Do not proceed with the reservation
+    }
+
+    peopleWarning.textContent = ""; // Clear the warning message
+
     if (checkIn != '' && checkOut != '' && people != '' &&
         new Date(checkIn) <= new Date(checkOut)) {
         reservation.startDate = checkIn;
@@ -41,7 +51,6 @@ function searchFormData(e) {
         changeContent('search-result-form-content');
     }
 }
-
 
 // Offerer
 
